@@ -6,7 +6,7 @@ package main.java.com.bitwiseglobal.burgershop;
 public class StoreFront {
 
     public static void main (String [] args) {
-        new Menu().showBurgers();
+        new Menu();
     }
 
 }

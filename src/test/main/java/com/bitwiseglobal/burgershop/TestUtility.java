@@ -27,6 +27,5 @@ public class TestUtility {
     @Test
     public void itShouldGetTheBurgerFromTheList () {
         Menu menu = new Menu ();
-        menu.showBurgers();
     }
 }

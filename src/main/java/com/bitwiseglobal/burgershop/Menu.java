@@ -14,25 +14,70 @@ public class Menu {
     private int ch;
     Scanner in;
 
-    public void getUserInput () {
+    public Menu () {
+
+        do {
+            this.categories ();
+            this.getUserInput();
+            this.doAction(this.ch);
+        } while (this.ch != 0);
+    }
+
+    private void categories() {
+        System.out.println("1. Burgers");
+        System.out.println("2. Additionals");
+        System.out.println("3. Drinks");
+        System.out.println("4. Cart Status");
+    }
+
+    public int getUserInput () {
         in = new Scanner (System.in);
         this.ch = Integer.parseInt(in.nextLine());
-
+        return this.ch;
     }
 
     public void doAction (int ch) {
-        this.addToList(this.burger.getList().get(ch-1));
+        switch (ch) {
+            case 1:
+                this.printBurgerList ();
+                cart.addToCart(burger.getList().get(this.getUserInput() - 1));
+                break;
+            case 2:
+                this.printAdditionals();
+                cart.addToCart(burger.getList().get(this.getUserInput() - 1));
+                break;
+            case 3:
+                this.printAvailableDrinksList();
+                cart.addToCart(burger.getList().get(this.getUserInput() - 1));
+                break;
+            case 4:
+                this.printCartItems ();
+            case 0:
+                System.exit(0);
+                break;
+            default:
+
+                break;
+        }
     }
 
-    public void addToList (Object o) {
-        this.cart.userOrders.add(o);
+    private void printCartItems() {
+        cart.printCartProducts();
     }
 
-    public void showBurgers () {
+    private void printAvailableDrinksList() {
+        System.out.println ("Printing the list of available drinks");
+        Utility.printList(drink.getList());
+    }
+
+    private void printAdditionals() {
+        System.out.println("Printing Additionals List...");
+        Utility.printList(additional.getList());
+    }
+
+    private void printBurgerList() {
+        System.out.println("Printing Available Burgers List");
         Utility.printList(burger.getList());
-        this.getUserInput();
-        this.doAction(this.ch);
-        this.cart.printCartProducts();
     }
 
 
