@@ -34,17 +34,12 @@ public class Drink {
                 "Extra Patti"
         };
 
-
         Double price[] = {
                 25.00,
                 80.00,
                 40.00
 
         };
-
-
-
-
 
         for(int i=0;i<availableDrinks.length;i++){
             getList().add(new Additional(availableDrinks[i],price[i]));

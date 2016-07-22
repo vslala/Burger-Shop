@@ -33,6 +33,7 @@ public class Menu {
 
     public int getUserInput () {
         in = new Scanner (System.in);
+        System.out.println("Enter your choice...");
         this.ch = Integer.parseInt(in.nextLine());
         return this.ch;
     }
@@ -45,11 +46,11 @@ public class Menu {
                 break;
             case 2:
                 this.printAdditionals();
-                cart.addToCart(burger.getList().get(this.getUserInput() - 1));
+                cart.addToCart(additional.getList().get(this.getUserInput() - 1));
                 break;
             case 3:
                 this.printAvailableDrinksList();
-                cart.addToCart(burger.getList().get(this.getUserInput() - 1));
+                cart.addToCart(drink.getList().get(this.getUserInput() - 1));
                 break;
             case 4:
                 this.printCartItems ();
