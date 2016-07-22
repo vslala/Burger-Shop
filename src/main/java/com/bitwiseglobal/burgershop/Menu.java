@@ -28,6 +28,7 @@ public class Menu {
         System.out.println("2. Additionals");
         System.out.println("3. Drinks");
         System.out.println("4. Cart Status");
+        System.out.println("5. Total Price for orders");
     }
 
     public int getUserInput () {
@@ -52,6 +53,10 @@ public class Menu {
                 break;
             case 4:
                 this.printCartItems ();
+                break;
+            case 5:
+                System.out.println(cart.calculateTotalPrice());
+                break;
             case 0:
                 System.exit(0);
                 break;

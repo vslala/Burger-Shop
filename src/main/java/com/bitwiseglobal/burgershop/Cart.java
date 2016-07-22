@@ -19,7 +19,20 @@ public class Cart {
         this.userOrders.add(o);
     }
 
-    public void getUserInfo(){
+    public double calculateTotalPrice () {
+        double sum = 0;
+
+        for (int i=0; i < this.userOrders.size(); i++) {
+            if (this.userOrders.get(i) instanceof Burger)
+                sum = sum + ((Burger) this.userOrders.get(i)).getPrice();
+            if (this.userOrders.get(i) instanceof Additional)
+                sum = sum + (((Additional) this.userOrders.get(i)).getPrice());
+            if (this.userOrders.get(i) instanceof Drink)
+                sum = sum + ((Drink) this.userOrders.get(i)).getPrice();
+        }
+
+        sum = (sum + sum*0.15) + (sum + sum*0.10);
+        return sum;
 
     }
 }
